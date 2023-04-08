@@ -1,15 +1,14 @@
-# Node Block
-FROM node:16-alpine as nodework
+FROM node:16-alpine
+# change node version as your requirement
+
 RUN mkdir -p /usr/app/
 WORKDIR /usr/app
+
 COPY package.json .
 RUN npm i --force
-COPY . .
-RUN npm run build-dev
 
-# Nginx Block
-FROM nginx:1.23-alpine
-WORKDIR /usr/share/nginx/html
-RUN rm -rf ./*
-COPY --from=nodework /usr/app/build .
-COPY --from=nodework /usr/app/nginx.conf /etc/nginx/conf.d
+COPY . .
+RUN npm run build
+
+EXPOSE 3000
+CMD ["npm","start"]
