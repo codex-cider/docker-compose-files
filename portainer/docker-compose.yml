@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  
+  portainer:
+    image: 	portainer/portainer-ce:2.17.1-alpine
+    # replace 2.17.1-alpine with latest if you want to use latest image
+    container_name: portainer # container name
+    ports:
+      - 8000:8000 # hostPort:containerPort
+      - 9443:9443 # hostPort:containerPort
+    # you can change hostPort as you want    
+    volumes:
+      - portainer_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock # map volume for local environment
+
+
+volumes:
+  portainer_data:
