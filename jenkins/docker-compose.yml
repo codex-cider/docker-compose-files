@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  
+  portainer:
+    image: 	jenkins/jenkins:jdk11
+    # replace jdk11 with latest if you want to use latest image
+    container_name: jenkins # container name
+    ports:
+      - 48001:8000  # hostPort:containerPort
+      - 48002:50000 # hostPort:containerPort
+    # you can change hostPort as you want    
+    volumes:
+      - jenkins_home:/var/jenkins_home      
+
+
+volumes:
+  jenkins_home:  
