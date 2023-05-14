@@ -3,8 +3,8 @@ version: '3'
 services:
   
   portainer:
-    image: 	portainer/portainer-ce:2.17.1-alpine
-    # replace 2.17.1-alpine with latest if you want to use latest image
+    image: 	portainer/portainer-ce:2.18.2-alpine
+    # replace 2.18.2-alpine with latest if you want to use latest image
     container_name: portainer # container name
     ports:
       - 8000:8000 # hostPort:containerPort
